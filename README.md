@@ -24,8 +24,12 @@ can verify the guidance.
 
 Without uploaded files, the app uses general demonstration guidance, not
 college-specific facts. Uploaded content is held in the app session and is not
-saved permanently. Verify deadlines and requirements with the college's
-official admissions office.
+saved permanently. By default, answers are extracted locally from matching
+passages. For generated, natural-language answers, enable **Generate
+natural-language answers** and configure `OPENAI_API_KEY` as an environment
+variable or in Streamlit secrets. In that optional mode, the question and
+retrieved passages are sent to the configured OpenAI-compatible API. Verify
+deadlines and requirements with the college's official admissions office.
 
 ## Deploy to Streamlit Community Cloud
 
@@ -39,5 +43,5 @@ official admissions office.
    through the sidebar.
 
 The uploaded files are session data; redeploying or starting another session
-does not make them permanent. The app does not require an API key or send
-questions to an external language-model service.
+does not make them permanent. The app does not require an API key unless you
+enable generated answers.

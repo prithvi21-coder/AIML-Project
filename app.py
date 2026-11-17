@@ -2,12 +2,15 @@
 
 from __future__ import annotations
 
+import os
+
 import streamlit as st
 
 from project import (
     DEMO_DOCUMENTS,
     TfidfRetriever,
     chunk_documents,
+    llm_answer,
     local_answer,
 )
 
@@ -31,6 +34,26 @@ with st.sidebar:
         ),
     )
     st.caption("Maximum combined upload size: 5 MB.")
+    use_llm = st.checkbox(
+        "Generate natural-language answers",
+        help=(
+            "Optional. Sends your question and retrieved passages to the "
+            "configured OpenAI-compatible API."
+        ),
+    )
+
+api_key: str | None = None
+if use_llm:
+    api_key = os.environ.get("OPENAI_API_KEY")
+    try:
+        api_key = st.secrets.get("OPENAI_API_KEY") or api_key
+    except st.errors.StreamlitSecretNotFoundError:
+        pass
+    if not api_key:
+        st.sidebar.warning(
+            "Set OPENAI_API_KEY in the app environment or Streamlit secrets "
+            "to use generated answers."
+        )
 
 documents: dict[str, str] = {}
 upload_error: str | None = None
@@ -91,7 +114,25 @@ for message in st.session_state.messages:
 question = st.chat_input("Ask about applications, documents, aid, or deadlines")
 if question:
     results = retriever.search(question, top_k=3)
-    answer = local_answer(question, results)
+    if use_llm and not api_key:
+        st.error("Configure OPENAI_API_KEY before requesting a generated answer.")
+        st.stop()
+    if use_llm and results:
+        try:
+            answer = llm_answer(
+                question=question,
+                results=results,
+                api_key=api_key,
+                model=os.environ.get("OPENAI_MODEL", "gpt-4o-mini"),
+                base_url=os.environ.get(
+                    "OPENAI_BASE_URL", "https://api.openai.com/v1"
+                ),
+            )
+        except RuntimeError as error:
+            st.error(str(error))
+            st.stop()
+    else:
+        answer = local_answer(question, results)
     st.session_state.messages.extend(
         [
             {"role": "user", "content": question},

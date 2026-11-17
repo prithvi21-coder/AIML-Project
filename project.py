@@ -65,8 +65,21 @@ directly with the college if you accept an offer.
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "can", "do", "for",
     "from", "how", "i", "in", "is", "it", "me", "my", "of", "on", "or",
-    "please", "tell", "that", "the", "this", "to", "what", "when", "where",
-    "which", "who", "with", "would", "you",
+    "must", "need", "needed", "needs", "please", "should", "tell", "that",
+    "the", "this", "to", "what", "when", "where", "which", "who", "with",
+    "would", "you",
+}
+
+TERM_ALIASES = {
+    "apply": {
+        "applies", "applied", "applying", "application", "applications",
+    },
+    "deadline": {"deadlines", "date", "dates", "due"},
+}
+CANONICAL_TERMS = {
+    alias: canonical
+    for canonical, aliases in TERM_ALIASES.items()
+    for alias in aliases | {canonical}
 }
 
 
@@ -78,7 +91,8 @@ class Passage:
 
 def tokenize(text: str) -> list[str]:
     return [
-        word for word in re.findall(r"[a-z0-9]+", text.lower())
+        CANONICAL_TERMS.get(word, word)
+        for word in re.findall(r"[a-z0-9]+", text.lower())
         if word not in STOP_WORDS
     ]
 
