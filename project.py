@@ -20,47 +20,46 @@ from urllib.request import Request, urlopen
 
 
 DEMO_DOCUMENTS = {
-    "demo_application_process.txt": """
-College application process (general demonstration guidance)
+    "lpu_application_process.txt": """
+Topic: Lovely Professional University (LPU) Application Process
+Institution: Lovely Professional University (LPU), Phagwara, Punjab
+Official Portal: https://admission.lpu.in | Helpline: +91-1824-517000
 
-Make a list of colleges and check each institution's official admissions
-website for its current application steps, eligibility rules, required forms,
-and deadlines. Requirements can differ by program and may change each year.
-Submit the application and supporting documents through the channel specified
-by the college. Keep copies of submitted materials and confirmation receipts.
-Contact the admissions office when an official page does not answer a question.
+- Check LPU's official admissions portal (admission.lpu.in) for program-specific eligibility criteria, admission phases, and current deadlines, as requirements and scholarship brackets vary by phase and course.
+- Complete registration and submit the online application through LPU's official portal, booking LPUNEST (LPU National Entrance and Scholarship Test) if required for the chosen program.
+- Pay the nominal provisional seat reservation fee (e.g., ₹10,000 for most regular programs, adjusted against semester fees) through the authorized payment gateway to lock provisional admission.
+- Save copies of the completed application form, LPUNEST admit card/scorecard, and fee payment receipts.
+- Contact LPU Admissions directly via +91-1824-517000 or the official website if a specific program rule is unclear.
 """,
-    "demo_documents.txt": """
-Application documents (general demonstration guidance)
+    "lpu_documents.txt": """
+Topic: Lovely Professional University (LPU) Required Application & Verification Documents
+Institution: Lovely Professional University (LPU)
 
-An application may request academic records, identification, test results,
-recommendation letters, a personal statement, or other supporting materials.
-The exact list depends on the college, program, and applicant category. Use the
-current official checklist for the program you are applying to. Arrange for
-records from other institutions to be sent in the format the college accepts.
-Check that names and dates match across submitted documents.
+- Standard required documents include Class 10 and Class 12 mark sheets/certificates, graduation/post-graduation transcripts (for PG/Ph.D. applicants), valid government photo ID (such as Aadhaar Card or Passport), recent passport-size photographs, and entrance test scorecards (LPUNEST, JEE, GATE, etc., as applicable).
+- Exact document checklists depend on the selected program, applicant category (domestic or international), and any claimed reservation or special category.
+- Upload clear digital scans during online provisional admission, and carry all original academic certificates to the LPU campus for mandatory physical document verification and linking after admission confirmation.
+- Verify that the applicant's name, parent names, and date of birth match identically across Class 10 certificates, ID proofs, and the LPU application form.
 """,
-    "demo_financial_aid.txt": """
-Financial aid (general demonstration guidance)
+    "lpu_financial_aid.txt": """
+Topic: Lovely Professional University (LPU) Scholarships, Financial Aid, and Education Loans
+Institution: Lovely Professional University (LPU)
 
-Financial aid and scholarship eligibility, application forms, and deadlines
-vary between colleges and funding programs. Review the official financial aid
-pages for each institution and check whether separate applications are needed.
-Before sharing financial or identity documents, confirm the request and secure
-submission channel with the institution. Contact the financial aid office
-about eligibility questions or changes to your circumstances.
+- LPU offers merit scholarships based on qualifying exam marks, LPUNEST scores, or national entrance tests, with maximum scholarship benefits typically available in earlier admission phases (such as Phase-I).
+- Need-based financial aid and special category scholarships (such as for orphans, persons with disabilities, wards of defense personnel, or educator wards) require separate supporting proof, including a valid income certificate issued by a competent government authority (e.g., Tehsildar or District Magistrate).
+- For bank education loans, students must first complete provisional admission formalities and then request an official Loan Letter / fee structure from LPU's Student Loan Assistance Cell (studentloanassistance@lpu.co.in).
+- Submit financial, income, or identity records strictly through official LPU admission portals or verified campus offices, and contact LPU's financial aid or loan assistance team for eligibility queries.
 """,
-    "demo_after_applying.txt": """
-After applying (general demonstration guidance)
+    "lpu_after_applying.txt": """
+Topic: Lovely Professional University (LPU) Post-Application & Enrollment Steps
+Institution: Lovely Professional University (LPU)
 
-After submitting an application, check the institution's applicant portal and
-email for status updates and requests for additional information. Respond by
-the stated deadline and keep a copy of each communication. If a decision or
-document is missing, contact the admissions office using contact details from
-the institution's official website. Confirm enrollment and housing steps
-directly with the college if you accept an offer.
+- After applying, log in regularly to the LPU Admission Dashboard / applicant portal and check registered email/SMS alerts for seat allotment, LPUNEST results, scholarship status, and document verification requests.
+- Upload any requested pending documents or complete balance semester fee payments before the stated phase deadline to retain provisional seat and scholarship benefits.
+- If a document status, scholarship bracket, or payment receipt shows a discrepancy, contact LPU Admissions using the official helpline (+91-1824-517000) or registered portal support.
+- After accepting the admission offer, complete residential hostel/mess booking, transport registration (if needed), and physical document verification on campus as instructed by LPU.
 """,
 }
+
 
 STOP_WORDS = {
     "a", "an", "and", "are", "as", "at", "be", "by", "can", "do", "for",
