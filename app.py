@@ -91,8 +91,10 @@ if documents:
 else:
     documents = DEMO_DOCUMENTS.copy()
     st.info(
-        "No files uploaded. General demonstration guidance is active; "
-        "upload official college information for institution-specific answers."
+        "No files uploaded. LPU demo guidance is active. Check "
+        "[LPU's official admissions portal](https://admission.lpu.in/) "
+        "for current requirements, and upload official documents for "
+        "more specific answers."
     )
 
 retriever = TfidfRetriever(chunk_documents(documents))

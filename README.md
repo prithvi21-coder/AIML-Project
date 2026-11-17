@@ -22,14 +22,16 @@ can verify the guidance.
 4. Open the local URL printed by Streamlit and upload UTF-8 `.txt` or `.md`
    admission documents in the sidebar. The combined upload limit is 5 MB.
 
-Without uploaded files, the app uses general demonstration guidance, not
-college-specific facts. Uploaded content is held in the app session and is not
-saved permanently. By default, answers are extracted locally from matching
-passages. For generated, natural-language answers, enable **Generate
-natural-language answers** and configure `OPENAI_API_KEY` as an environment
-variable or in Streamlit secrets. In that optional mode, the question and
-retrieved passages are sent to the configured OpenAI-compatible API. Verify
-deadlines and requirements with the college's official admissions office.
+Without uploaded files, the app uses general LPU demo guidance. Check
+[LPU's official admissions portal](https://admission.lpu.in/) for current
+program requirements, fees, scholarships, and deadlines. Uploaded content is
+held in the app session and is not saved permanently. By default, answers are
+extracted locally from matching passages. For generated, natural-language
+answers, enable **Generate natural-language answers** and configure
+`OPENAI_API_KEY` as an environment variable or in Streamlit secrets. In that
+optional mode, the question and retrieved passages are sent to the configured
+OpenAI-compatible API. Verify deadlines and requirements with LPU's official
+admissions office.
 
 ## Deploy to Streamlit Community Cloud
 

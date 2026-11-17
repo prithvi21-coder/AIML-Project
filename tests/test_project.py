@@ -1,9 +1,15 @@
 import unittest
 
-from project import TfidfRetriever, chunk_documents, local_answer
+from project import DEMO_DOCUMENTS, TfidfRetriever, chunk_documents, local_answer
 
 
 class UploadedDocumentAnswerTests(unittest.TestCase):
+    def test_demo_guidance_is_about_lpu_and_uses_official_portal(self) -> None:
+        self.assertEqual(len(DEMO_DOCUMENTS), 4)
+        for document in DEMO_DOCUMENTS.values():
+            self.assertIn("Lovely Professional University (LPU)", document)
+            self.assertIn("https://admission.lpu.in/", document)
+
     def setUp(self) -> None:
         self.retriever = TfidfRetriever(
             chunk_documents(
